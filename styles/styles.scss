@@ -104,6 +104,11 @@ nav {
 
 .city {
     font-size: 1.2em;
+    padding: 0px 1em;
+
+    @media screen and (max-width: $screen-width-small) {
+        padding: 0px 10vw;
+    }
 }
 
 .link {
@@ -163,6 +168,10 @@ nav {
             width: 90vw;
         }
 
+        @media screen and (min-width: $screen-width-small) {
+            width: 50vw;
+        }
+
         @media screen and (min-width: $screen-width-large) {
             width: 43vw;
         }
@@ -176,6 +185,14 @@ nav {
     img {
         margin: auto;
         width: 20vw;
+
+        @media screen and (max-width: $screen-width-small) {
+            width: 50vw;
+        }
+
+        @media screen and (max-width: $screen-width-large) {
+            width: 50vw;
+        }
     }
 }
 
@@ -200,6 +217,14 @@ nav {
     }
 }
 
+#contact_list {
+    margin: auto;
+    text-align: center;
+
+    .contact-method {
+        font-size: 1.3em;
+    }
+}
 
 #container {
     display: flex;

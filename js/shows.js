@@ -76,7 +76,7 @@ $(() => {
   ${s.venue.displayName}
 </div>
 <div class="city">
-  ${s.location.city}
+  ${s.location.city.replace(/, US$/, '')}
 </div>
 <a class="a-button link" href="${s.uri}" target="_blank">Tickets</a>
 `;
