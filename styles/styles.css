@@ -1,0 +1,273 @@
+a {
+  border-bottom: 2px dotted white;
+  color: white;
+  text-decoration: none;
+}
+a:hover {
+  color: #af68e5;
+  border-bottom: 2px dotted #af68e5;
+}
+a.image {
+  border-bottom: none;
+}
+a.image:hover {
+  border-bottom: none;
+}
+
+article {
+  font-size: 1.35em;
+  line-height: 1.5em;
+  padding: 0 1vw;
+}
+@media screen and (max-width: 500px) {
+  article {
+    font-size: initial;
+    padding-inline-start: 16px;
+  }
+}
+
+body {
+  background-image: url("../assets/img/bg.gif");
+  color: white;
+}
+@media screen and (min-width: 1300px) {
+  body {
+    width: 50vw;
+  }
+}
+@media screen and (max-width: 1300px) {
+  body {
+    width: 75vw;
+  }
+}
+
+footer p {
+  margin: auto;
+  width: fit-content;
+}
+
+@media screen and (min-width: 800px) {
+  nav {
+    font-size: 1.25em;
+  }
+}
+@media screen and (max-width: 800px) {
+  nav {
+    font-size: 1em;
+  }
+}
+nav a {
+  padding: 8px;
+}
+nav a:hover {
+  background-color: #af68e5;
+  border-bottom: 2px dotted white;
+  color: white;
+}
+nav li {
+  display: inline;
+}
+nav ul {
+  width: max-content;
+}
+@media screen and (max-width: 500px) {
+  nav ul {
+    padding-inline-start: 16px;
+  }
+}
+
+.a-button {
+  border: 1px solid white;
+  border-radius: 3px;
+  padding: 1em;
+}
+.a-button:hover {
+  background-color: #af68e5;
+  border-bottom: 1px solid white;
+  color: white;
+}
+
+.align-right {
+  float: right;
+}
+
+.city {
+  font-size: 1.2em;
+}
+
+.link {
+  background-color: #b28fcd;
+}
+
+.date-and-venue {
+  font-size: 1.2em;
+}
+
+.grid-row-border {
+  border-top: 1px solid white;
+  grid-column: 1/4;
+}
+
+.index-left-side {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 4;
+  justify-content: space-between;
+  padding: 0.25em 0.75em 1em 0.75em;
+}
+.index-left-side h1 {
+  font-size: 2em;
+}
+
+.index-right-side {
+  margin-top: 16px;
+}
+@media screen and (max-width: 500px) {
+  .index-right-side {
+    margin: auto;
+  }
+}
+@media screen and (min-width: 1300px) {
+  .index-right-side img {
+    width: 24vw;
+  }
+}
+@media screen and (max-width: 1300px) {
+  .index-right-side img {
+    width: 45vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  .index-right-side img {
+    width: 90vw;
+  }
+}
+
+#band_bio_image_primary {
+  margin: auto;
+  width: fit-content;
+}
+@media screen and (max-width: 500px) {
+  #band_bio_image_primary img {
+    width: 90vw;
+  }
+}
+@media screen and (min-width: 1300px) {
+  #band_bio_image_primary img {
+    width: 43vw;
+  }
+}
+
+#band_bio_image_secondary {
+  margin: auto;
+  width: fit-content;
+}
+#band_bio_image_secondary img {
+  margin: auto;
+  width: 20vw;
+}
+
+@media screen and (min-width: 500px) {
+  #buttons_above {
+    display: initial;
+  }
+}
+@media screen and (max-width: 500px) {
+  #buttons_above {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  #buttons_bottom {
+    display: none;
+  }
+}
+@media screen and (max-width: 500px) {
+  #buttons_bottom {
+    display: initial;
+    margin-top: 16px;
+  }
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+}
+
+#content {
+  display: flex;
+}
+@media screen and (max-width: 800px) {
+  #content {
+    flex-direction: column;
+  }
+}
+
+#lineup h2 {
+  margin: 22px auto;
+  width: fit-content;
+}
+#lineup ul {
+  list-style-type: none;
+  margin: auto;
+  width: fit-content;
+}
+#lineup ul li {
+  margin-bottom: 18px;
+}
+#lineup ul li .bio-member {
+  text-align: center;
+}
+
+#quote {
+  order: 2;
+}
+#quote p {
+  margin-top: 0;
+}
+
+#show_list {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  padding: 0 0.75em 1.5em 0.75em;
+  row-gap: 2em;
+  width: 100%;
+}
+#show_list > * {
+  align-self: center;
+}
+#show_list h1 {
+  grid-column: 1/4;
+  justify-self: center;
+}
+
+#writeup {
+  order: 1;
+}
+@media screen and (max-width: 500px) {
+  #writeup {
+    order: 2;
+  }
+}
+
+#writeup_and_quote {
+  display: flex;
+}
+@media screen and (max-width: 500px) {
+  #writeup_and_quote {
+    width: 100vw;
+  }
+}
+
+#vintage {
+  margin: auto;
+}
+@media screen and (max-width: 500px) {
+  #vintage img {
+    width: 90vw;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
