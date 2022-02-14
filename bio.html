@@ -7,14 +7,14 @@
         <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
                 integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
                 crossorigin="anonymous"></script>
-        <script src="./js/vintage.js"></script>
+        <script src="./js/standard.js"></script>
         <link rel="stylesheet" href="./styles/styles.css" />
         <title>DINNER TIME | Biography</title>
     </head>
     <body>
-        <section id="container">
-            <header id="vintage"></header>
-            <nav>
+        <div id="container">
+            <div class="centered" id="vintage"></div>
+            <div id="navbar">
                 <ul>
                     <a href="./index.html"><li>Home</li></a>
                     <a href="./bio.html"><li>Bio</li></a>
@@ -23,98 +23,91 @@
                     <a href="./contact.html"><li>Contact</li></a>
                     <a href="https://dinner-time.bandcamp.com/merch"><li>Store</li></a>
                 </ul>
-            </nav>
+            </div>
             <div id="content">
                 <div>
-                    <div id="band_bio_image_primary">
-                        <a class="image" href="./assets/img/band2.jpg" target="_blank">
-                            <img src="./assets/img/band2.jpg" />
-                        </a>
-                    </div>
-                    <div id="writeup_and_quote">
-                        <article id="writeup">
-                            <p>
-                                Hailing from Atlanta, Georgia, DINNER TIME is a 5 piece band fusing genres of indie
-                                pop, nu-funk, slacker garage rock, and psychedelic music. Founded by lifelong
-                                friends Alejandro, Andrew, London, Ian, and Chad, DINNER TIME offers a haven from
-                                the monotony in life with appetizing moods of the surf, sand, and sun, all in a
-                                coincident echo and chorus. In a leisurely, yet rowdy essence, DINNER TIME
-                                transports you into a mood only satiated by backyard hangs, chilled beverages, and
-                                mellowing out to a sunset with your best friends. Trademark uber-chorus guitars
-                                plunk and quack over tight soul meets pseudo-jazz breaks and grooves, all creating
-                                an atmosphere for short vignette-style vocals that paint with broad strokes and
-                                allow you to enter a new world of aesthetics with each track.
-                            </p>
-                        </article>
-                        <blockquote id="quote" cite="https://www.popmatters.com/dinner-time-halfway-down-review">
-                            <p>
-                                <i>
-                                    "Dinner Time is a band with loads of musical chops and a great deal of
-                                    vision, and while it can sometimes seem like they have way too many ideas
-                                    for one group, they manage to create something wonderfully cohesive on
-                                    Halfway Down."
-                                </i>
-                            </p>
-                            <p class="align-right">
-                                -
-                                <a href="https://www.popmatters.com/dinner-time-halfway-down-review" target="_blank">
-                                    PopMatters
-                                </a>
-                            </p>
+                    <a class="centered image" href="./assets/img/band/band2.jpg" target="_blank">
+                        <img id="bio_band_image_primary" src="./assets/img/band/band2.jpg" />
+                    </a>
+                    <div id="bio_text">
+                        <blockquote cite="https://www.popmatters.com/dinner-time-halfway-down-review">
+                            <i>
+                                "Dinner Time is a band with loads of musical chops and a great deal of
+                                vision, and while it can sometimes seem like they have way too many ideas
+                                for one group, they manage to create something wonderfully cohesive on
+                                Halfway Down."
+                            </i>
+                            <br />
+                            <span class="align-right">
+                                - <a href="https://www.popmatters.com/dinner-time-halfway-down-review" target="_blank">PopMatters</a>
+                            </span>
                         </blockquote>
+                        <p class="more-embiggened">
+                            Hailing from Atlanta, Georgia, DINNER TIME is a 5 piece band fusing genres of indie
+                            pop, nu-funk, slacker garage rock, and psychedelic music. Founded by lifelong
+                            friends Alejandro, Andrew, London, Ian, and Chad, DINNER TIME offers a haven from
+                            the monotony in life with appetizing moods of the surf, sand, and sun, all in a
+                            coincident echo and chorus. In a leisurely, yet rowdy essence, DINNER TIME
+                            transports you into a mood only satiated by backyard hangs, chilled beverages, and
+                            mellowing out to a sunset with your best friends. Trademark uber-chorus guitars
+                            plunk and quack over tight soul meets pseudo-jazz breaks and grooves, all creating
+                            an atmosphere for short vignette-style vocals that paint with broad strokes and
+                            allow you to enter a new world of aesthetics with each track.
+                        </p>
                     </div>
-                    <article id="lineup">
-                        <div id="band_bio_image_secondary">
-                            <a class="image" href="./assets/img/bio/band_bio.jpg" target="_blank">
-                                <img src="./assets/img/bio/band_bio.jpg" />
-                            </a>
-                        </div>
-                        <ul>
-                            <h2>DINNER TIME is:</h2>
+                    <div id="bio_lineup">
+                        <a class="centered image" href="./assets/img/band/band_bio.jpg" target="_blank">
+                            <img id="bio_band_image_secondary" src="./assets/img/band/band_bio.jpg" />
+                        </a>
+                        <ul class="centered column-list embiggened">
+                            <h1>DINNER TIME is:</h1>
                             <li>
-                                <div class="bio-member">
+                                <div>
                                     <strong>Ian Buford</strong>
                                     <br />
                                     Guitar / Lead Vocals
                                 </div>
                             </li>
                             <li>
-                                <div class="bio-member">
+                                <div>
                                     <strong>Andrew Joyce</strong>
                                     <br />
                                     Synth / Guitar / Lead Vocals
                                 </div>
                             </li>
                             <li>
-                                <div class="bio-member">
+                                <div>
                                     <strong>Alejandro Uribe</strong>
                                     <br />
                                     Guitar / Vocals
                                 </div>
                             </li>
                             <li>
-                                <div class="bio-member">
+                                <div>
                                     <strong>London Cameron</strong>
                                     <br />
                                     Bass / Vocals
                                 </div>
                             </li>
                             <li>
-                                <div class="bio-member">
+                                <div>
                                     <strong>Chad Miller</strong>
                                     <br />
                                     Drums
                                 </div>
                             </li>
                         </ul>
-                    </article>
+                    </div>
                 </div>
             </div>
-            <footer>
+            <div class="centered" id="copyright">
                 <hr />
                 <p>&copy; Dinner Time, LLC 1997</p>
-            </footer>
-        </section>
+                <p>
+                    <i>This website is best viewed with Netscape Navigator 3.0 on a 640x480 display.</i>
+                </p>
+            </div>
+        </div>
     </body>
 </html>
 

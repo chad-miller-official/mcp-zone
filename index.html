@@ -8,14 +8,14 @@
                 integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
                 crossorigin="anonymous"></script>
         <script src="./js/index.js"></script>
-        <script src="./js/vintage.js"></script>
+        <script src="./js/standard.js"></script>
         <link rel="stylesheet" href="./styles/styles.css" />
         <title>DINNER TIME</title>
     </head>
     <body>
-        <section id="container">
-            <header id="vintage"></header>
-            <nav>
+        <div id="container">
+            <div class="centered" id="vintage"></div>
+            <div id="navbar">
                 <ul>
                     <a href="./index.html"><li>Home</li></a>
                     <a href="./bio.html"><li>Bio</li></a>
@@ -24,31 +24,40 @@
                     <a href="./contact.html"><li>Contact</li></a>
                     <a href="https://dinner-time.bandcamp.com/merch"><li>Store</li></a>
                 </ul>
-            </nav>
+            </div>
             <div id="content">
-                <article class="index-left-side">
-                    <div>
-                        <h1>DINNER TIME</h1>
-                        <h2>is a band from</h2>
-                        <h1>Atlanta, Georgia</h1>
+                <div class="flex-column">
+                    <br />
+                    <img class="centered" src="./assets/img/index/welcome.png" />
+                    <br />
+                    <div class="flex-row flex-center-horizontal">
+                        <div class="centered">
+                            <h1>DINNER TIME</h1>
+                            <h2>is a band from</h2>
+                            <h1>Atlanta, Georgia</h1>
+                        </div>
+                        <div id="index_band_photo"></div>
                     </div>
-                    <div id="buttons_above">
-                        <img src="./assets/img/netscape.gif" />
-                        <img src="./assets/img/linux.gif" />
-                        <img src="./assets/img/alertra.gif" />
+                    <div id="index_buttons">
+                        <a class="image" href="https://www.instagram.com/dinnertime.usa/">
+                            <img src="./assets/img/netscape.gif" />
+                        </a>
+                        <a class="image" href="https://www.tiktok.com/@dinnertime.usa">
+                            <img src="./assets/img/linux.gif" />
+                        </a>
+                        <a class="image" href="https://www.youtube.com/channel/UC32_jJTIj0Vl9MHr40fjwcw">
+                            <img src="./assets/img/alertra.gif" />
+                        </a>
                     </div>
-                </article>
-                <aside class="index-right-side" id="band_photo"></aside>
-                <div id="buttons_bottom">
-                    <img src="./assets/img/netscape.gif" />
-                    <img src="./assets/img/linux.gif" />
-                    <img src="./assets/img/alertra.gif" />
                 </div>
             </div>
-            <footer>
+            <div class="centered" id="copyright">
                 <hr />
                 <p>&copy; Dinner Time, LLC 1997</p>
-            </footer>
-        </section>
+                <p>
+                    <i>This website is best viewed with Netscape Navigator 3.0 on a 640x480 display.</i>
+                </p>
+            </div>
+        </div>
     </body>
 </html>

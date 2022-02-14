@@ -1,32 +1,6 @@
 const SHOW_DATA = [
   {
     "type": "Concert",
-    "uri": "https://www.songkick.com/concerts/40192320-dinner-time-at-529",
-    "start": {
-      "datetime": "2022-02-11T21:00:00-0500",
-    },
-    "location": {
-      "city": "Atlanta, GA, US",
-    },
-    "venue": {
-      "displayName": "529",
-    },
-  },
-  {
-    "type": "Concert",
-    "uri": "https://www.songkick.com/concerts/40192353-mother-fore-at-southern-brewing-company",
-    "start": {
-      "datetime": "2022-02-12T20:00:00-0500",
-    },
-    "location": {
-      "city": "Athens, GA, US",
-    },
-    "venue": {
-      "displayName": "Southern Brewing Company",
-    },
-  },
-  {
-    "type": "Concert",
     "uri": "https://www.eventbrite.com/e/raquel-lily-album-release-show-w-dinner-time-yael-sante-tickets-247363259167",
     "start": {
       "datetime": "2022-03-03T19:00:00-0500",
@@ -50,7 +24,7 @@ const OFFSET_TIME_ZONES = {
 };
 
 $(() => {
-  const showList = $('#show_list');
+  const showList = $('#shows_show_list');
 
   SHOW_DATA.forEach((s, i) => {
     const startTime = s.start.datetime;
@@ -62,6 +36,11 @@ $(() => {
     };
 
     const startTimeObj = new Date(Date.parse(startTime));
+
+    if(startTimeObj < new Date()) {
+      return;
+    }
+
     const date = startTimeObj.toLocaleDateString(LOCALE);
     const start = startTimeObj.toLocaleTimeString(LOCALE, localeTimeStringOpts);
 
@@ -69,13 +48,13 @@ $(() => {
     const end = endTime && new Date(Date.parse(endTime)).toLocaleTimeString(LOCALE, localeTimeStringOpts);
 
     const showElem = `
-<div class="date-and-venue">
+<div class="embiggened">
   ${date} ${start + ((end && (' - ' + end)) || '')}
   <br />
   <br />
   ${s.venue.displayName}
 </div>
-<div class="city">
+<div class="embiggened">
   ${s.location.city.replace(/, US$/, '')}
 </div>
 <a class="a-button link" href="${s.uri}" target="_blank">Tickets</a>
