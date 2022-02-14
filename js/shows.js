@@ -26,44 +26,47 @@ const OFFSET_TIME_ZONES = {
 $(() => {
   const showList = $('#shows_show_list');
 
-  SHOW_DATA.forEach((s, i) => {
-    const startTime = s.start.datetime;
-    const timezone = OFFSET_TIME_ZONES[startTime.replace(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}/, '')];
-    const localeTimeStringOpts = {
-      timezone,
-      hour: '2-digit',
-      minute: '2-digit',
-    };
+  if(SHOW_DATA == 0) {
+    showList.append('<div class="embiggened shows-grid-centered">No upcoming shows.</div>');
+  } else {
+    showList.append('<div class="grid-row-border"></div>');
 
-    const startTimeObj = new Date(Date.parse(startTime));
+    SHOW_DATA.forEach((s, i) => {
+      const startTime = s.start.datetime;
+      const timezone = OFFSET_TIME_ZONES[startTime.replace(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}/, '')];
+      const localeTimeStringOpts = {
+        timezone,
+        hour: '2-digit',
+        minute: '2-digit',
+      };
 
-    if(startTimeObj < new Date()) {
-      return;
-    }
+      const startTimeObj = new Date(Date.parse(startTime));
 
-    const date = startTimeObj.toLocaleDateString(LOCALE);
-    const start = startTimeObj.toLocaleTimeString(LOCALE, localeTimeStringOpts);
+      if(startTimeObj < new Date()) {
+        return;
+      }
 
-    const endTime = s.end?.datetime;
-    const end = endTime && new Date(Date.parse(endTime)).toLocaleTimeString(LOCALE, localeTimeStringOpts);
+      const date = startTimeObj.toLocaleDateString(LOCALE);
+      const start = startTimeObj.toLocaleTimeString(LOCALE, localeTimeStringOpts);
 
-    const showElem = `
-<div class="embiggened">
-  ${date} ${start + ((end && (' - ' + end)) || '')}
-  <br />
-  <br />
-  ${s.venue.displayName}
-</div>
-<div class="embiggened">
-  ${s.location.city.replace(/, US$/, '')}
-</div>
-<a class="a-button link" href="${s.uri}" target="_blank">Tickets</a>
-`;
+      const endTime = s.end?.datetime;
+      const end = endTime && new Date(Date.parse(endTime)).toLocaleTimeString(LOCALE, localeTimeStringOpts);
 
-    showList.append(showElem);
+      const showElem = `
+  <div class="embiggened">
+    ${date} ${start + ((end && (' - ' + end)) || '')}
+    <br />
+    <br />
+    ${s.venue.displayName}
+  </div>
+  <div class="embiggened">
+    ${s.location.city.replace(/, US$/, '')}
+  </div>
+  <a class="a-button link" href="${s.uri}" target="_blank">Tickets</a>
+  `;
 
-    if(i < SHOW_DATA.length - 1) {
+      showList.append(showElem);
       showList.append('<div class="grid-row-border"></div>');
-    }
-  });
+    });
+  }
 });

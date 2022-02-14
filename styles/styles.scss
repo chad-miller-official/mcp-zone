@@ -98,7 +98,7 @@ ul {
 }
 
 .grid-row-border {
-    border-top: 1px solid white;
+    border-bottom: 1px dotted white;
     grid-column: 1 / 4;
 }
 
@@ -177,6 +177,11 @@ ul {
     }
 }
 
+.shows-grid-centered {
+    grid-column: 1 / 4;
+    justify-self: center;
+}
+
 #shows_show_list {
     display: grid;
     grid-template-columns: 1fr 1fr auto;
@@ -185,11 +190,6 @@ ul {
 
     & > * {
         align-self: center;
-    }
-
-    h1 {
-        grid-column: 1 / 4;
-        justify-self: center;
     }
 }
 
