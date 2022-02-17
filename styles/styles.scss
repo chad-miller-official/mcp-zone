@@ -155,14 +155,15 @@ ul {
 }
 
 .show-announce-list {
+    column-gap: 1em;
     display: grid;
     font-size: 1.25em;
-    grid-template-columns: auto auto auto;
-    column-gap: 1em;
+    grid-template-columns: auto auto max-content;
+    row-gap: 8px;
 
     @media screen and (max-width: $screen-width-small) {
+        column-gap: 4vw;
         font-size: initial;
-        row-gap: 12px;
     }
 }
 
@@ -194,15 +195,13 @@ ul {
 
 .show-announce-venue {
     justify-self: end;
-
-    @media screen and (max-width: $screen-width-small) {
-        justify-self: start;
-    }
 }
 
-.show-announce-header {
+.shows-grid-centered {
     grid-column: 1 / 4;
+    justify-self: center;
 }
+
 
 #bio_band_image_primary {
 	width: 90%;
@@ -278,11 +277,6 @@ ul {
             }
 		}
     }
-}
-
-.shows-grid-centered {
-    grid-column: 1 / 4;
-    justify-self: center;
 }
 
 #shows_show_list {
