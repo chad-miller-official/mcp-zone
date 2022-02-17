@@ -173,7 +173,7 @@ ul.column-list li {
   font-style: italic;
 }
 .show-announce-tba::after {
-  content: "... t.b.a.";
+  content: "t.b.a.";
 }
 
 .show-announce-venue {
