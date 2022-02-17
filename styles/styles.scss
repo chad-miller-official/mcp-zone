@@ -162,6 +162,7 @@ ul {
 
     @media screen and (max-width: $screen-width-small) {
         font-size: initial;
+        row-gap: 12px;
     }
 }
 
@@ -193,6 +194,10 @@ ul {
 
 .show-announce-venue {
     justify-self: end;
+
+    @media screen and (max-width: $screen-width-small) {
+        justify-self: start;
+    }
 }
 
 .show-announce-header {
