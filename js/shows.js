@@ -36,7 +36,6 @@ $(() => {
       return;
     }
 
-    $('#shows_loading').remove();
     showList.append(GRID_BORDER);
 
     results.event.forEach((s, i) => {
@@ -73,5 +72,7 @@ $(() => {
       showList.append(showElem);
       showList.append(GRID_BORDER);
     });
-  }).fail(onFail);
+  })
+    .fail(onFail)
+    .always(() => $('#shows_loading').remove());
 });
