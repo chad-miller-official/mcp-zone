@@ -1,20 +1,10 @@
-const SHOW_DATA = [
-  {
-    "type": "Concert",
-    "uri": "https://www.eventbrite.com/e/raquel-lily-album-release-show-w-dinner-time-yael-sante-tickets-247363259167",
-    "start": {
-      "datetime": "2022-03-03T19:00:00-0500",
-    },
-    "location": {
-      "city": "Decatur, GA, US",
-    },
-    "venue": {
-      "displayName": "Eddie's Attic",
-    },
-  }
-];
+/* What are you gonna do, steal my Songkick API key? */
+const SONGKICK_API_KEY          = '2kPN9eFcrPY9pwv4';
+const SONGKICK_ARTIST_ID        = '4925458';
+const SONGKICK_API_CALENDAR_URL = `https://api.songkick.com/api/3.0/artists/${SONGKICK_ARTIST_ID}/calendar.json?apikey=${SONGKICK_API_KEY}`;
 
-const LOCALE = navigator.languages?.[0] || navigator.language;
+const LOCALE      = navigator.languages?.[0] || navigator.language;
+const GRID_BORDER = '<div class="grid-row-border"></div>';
 
 const OFFSET_TIME_ZONES = {
   '-0500': 'EST',
@@ -23,50 +13,65 @@ const OFFSET_TIME_ZONES = {
   '-0800': 'PST',
 };
 
+const singleMessage = text => `<div class="embiggened shows-grid-centered">${text}</div>`;
+
 $(() => {
   const showList = $('#shows_show_list');
+  const onFail = () => {
+    showList.append(singleMessage('Failed to retrieve upcoming shows!'));
+  };
 
-  if(SHOW_DATA == 0) {
-    showList.append('<div class="embiggened shows-grid-centered">No upcoming shows.</div>');
-  } else {
-    showList.append('<div class="grid-row-border"></div>');
+  $.get(SONGKICK_API_CALENDAR_URL, data => {
+    const resultsPage = data.resultsPage;
 
-    SHOW_DATA.forEach((s, i) => {
-      const startTime = s.start.datetime;
-      const timezone = OFFSET_TIME_ZONES[startTime.replace(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}/, '')];
+    if(resultsPage.status != 'ok') {
+      onFail();
+      return;
+    }
+
+    const results = resultsPage.results;
+
+    if(results.totalEntries <= 0) {
+      showList.append(singleMessage('No upcoming shows.'));
+      return;
+    }
+
+    $('#shows_loading').remove();
+    showList.append(GRID_BORDER);
+
+    results.event.forEach((s, i) => {
+      const startTime      = s.start.datetime;
+      const timezoneNumber = startTime.replace(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}/, '');
+      const timezoneAbbr   = OFFSET_TIME_ZONES[timezoneNumber];
+
       const localeTimeStringOpts = {
-        timezone,
+        timezone: timezoneAbbr,
         hour: '2-digit',
         minute: '2-digit',
       };
 
       const startTimeObj = new Date(Date.parse(startTime));
-
-      if(startTimeObj < new Date()) {
-        return;
-      }
-
-      const date = startTimeObj.toLocaleDateString(LOCALE);
-      const start = startTimeObj.toLocaleTimeString(LOCALE, localeTimeStringOpts);
+      const date         = startTimeObj.toLocaleDateString(LOCALE);
+      const start        = startTimeObj.toLocaleTimeString(LOCALE, localeTimeStringOpts);
 
       const endTime = s.end?.datetime;
-      const end = endTime && new Date(Date.parse(endTime)).toLocaleTimeString(LOCALE, localeTimeStringOpts);
+      const end     = endTime && new Date(Date.parse(endTime)).toLocaleTimeString(LOCALE, localeTimeStringOpts);
 
       const showElem = `
   <div class="embiggened">
-    ${date} ${start + ((end && (' - ' + end)) || '')}
+    <strong>${date} ${start + ((end && (' - ' + end)) || '')}</strong>
     <br />
     <br />
-    ${s.venue.displayName}
+    <strong>${s.venue.displayName}</strong>
   </div>
   <div class="embiggened">
-    ${s.location.city.replace(/, US$/, '')}
+    <strong>${s.location.city}</strong>
   </div>
   <a class="a-button link" href="${s.uri}" target="_blank">Tickets</a>
   `;
 
       showList.append(showElem);
-      showList.append('<div class="grid-row-border"></div>');
+      showList.append(GRID_BORDER);
     });
-  }
+  }).fail(onFail);
 });
