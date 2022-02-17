@@ -111,13 +111,6 @@ ul.column-list li {
   image-rendering: pixelated;
 }
 
-#fence_border {
-  background-image: url(../assets/img/index/fence.gif);
-  background-repeat: repeat;
-  height: 38px;
-  margin: 4em 0;
-}
-
 @media screen and (max-width: 799px) {
   .show-announce {
     display: flex;
@@ -169,6 +162,10 @@ ul.column-list li {
   }
 }
 
+.show-announce-slug {
+  grid-column: 1/4;
+}
+
 .show-announce-tba {
   font-style: italic;
 }
@@ -176,13 +173,13 @@ ul.column-list li {
   content: "t.b.a.";
 }
 
-.show-announce-venue {
-  justify-self: end;
-}
-
-.shows-grid-centered {
+.shows-slug {
   grid-column: 1/4;
   justify-self: center;
+}
+
+.show-announce-venue {
+  justify-self: end;
 }
 
 #bio_band_image_primary {
@@ -219,6 +216,13 @@ ul.column-list li {
 }
 #copyright * {
   font-size: initial;
+}
+
+#index_fence_border {
+  background-image: url(../assets/img/index/fence.gif);
+  background-repeat: repeat;
+  height: 38px;
+  margin: 4em 0;
 }
 
 #index_band_photo {

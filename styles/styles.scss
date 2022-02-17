@@ -136,13 +136,6 @@ ul {
     image-rendering: pixelated;
 }
 
-#fence_border {
-    background-image: url(../assets/img/index/fence.gif);
-    background-repeat: repeat;
-    height: 38px;
-    margin: 4em 0;
-}
-
 .show-announce {
     @media screen and (max-width: $screen-width-small) {
         @include flex-column;
@@ -185,6 +178,10 @@ ul {
     }
 }
 
+.show-announce-slug {
+    grid-column: 1 / 4;
+}
+
 .show-announce-tba {
     font-style: italic;
 
@@ -193,15 +190,14 @@ ul {
     }
 }
 
-.show-announce-venue {
-    justify-self: end;
-}
-
-.shows-grid-centered {
+.shows-slug {
     grid-column: 1 / 4;
     justify-self: center;
 }
 
+.show-announce-venue {
+    justify-self: end;
+}
 
 #bio_band_image_primary {
 	width: 90%;
@@ -240,6 +236,14 @@ ul {
         font-size: initial;
     }
 }
+
+#index_fence_border {
+    background-image: url(../assets/img/index/fence.gif);
+    background-repeat: repeat;
+    height: 38px;
+    margin: 4em 0;
+}
+
 
 #index_band_photo {
     margin-top: 16px;

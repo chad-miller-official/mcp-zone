@@ -13,7 +13,7 @@ const OFFSET_TIME_ZONES = {
   '-0800': 'PST',
 };
 
-const singleMessage = text => `<div class="embiggened shows-grid-centered">${text}</div>`;
+const singleMessage = text => `<div class="embiggened" id="shows_slug">${text}</div>`;
 
 $(() => {
   const showList = $('#shows_show_list');
