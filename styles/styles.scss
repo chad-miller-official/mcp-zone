@@ -190,13 +190,20 @@ ul {
     }
 }
 
+.show-announce-venue {
+    justify-self: end;
+}
+
 .shows-slug {
     grid-column: 1 / 4;
     justify-self: center;
 }
 
-.show-announce-venue {
-    justify-self: end;
+.shows-time-and-venue {
+    @media screen and (max-width: $screen-width-small) {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 #bio_band_image_primary {
@@ -284,6 +291,7 @@ ul {
 }
 
 #shows_show_list {
+    column-gap: 1em;
     display: grid;
     grid-template-columns: 1fr 1fr auto;
     padding: 0 0.75em 1.5em 0.75em;

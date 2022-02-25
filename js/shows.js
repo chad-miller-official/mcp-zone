@@ -6,20 +6,14 @@ const SONGKICK_API_CALENDAR_URL = `https://api.songkick.com/api/3.0/artists/${SO
 const LOCALE      = navigator.languages?.[0] || navigator.language;
 const GRID_BORDER = '<div class="grid-row-border"></div>';
 
-const OFFSET_TIME_ZONES = {
-  '-0500': 'EST',
-  '-0600': 'CST',
-  '-0700': 'MST',
-  '-0800': 'PST',
-};
-
 const singleMessage = text => `<div class="embiggened" id="shows_slug">${text}</div>`;
+
+const DATE_FORMAT = luxon.DateTime.DATE_MED_WITH_WEEKDAY;
+const TIME_FORMAT = luxon.DateTime.TIME_SIMPLE;
 
 $(() => {
   const showList = $('#shows_show_list');
-  const onFail = () => {
-    showList.append(singleMessage('Failed to retrieve upcoming shows!'));
-  };
+  const onFail = () => showList.append(singleMessage('Failed to retrieve upcoming shows! Tell Chad.'));
 
   $.get(SONGKICK_API_CALENDAR_URL, data => {
     const resultsPage = data.resultsPage;
@@ -39,29 +33,25 @@ $(() => {
     showList.append(GRID_BORDER);
 
     results.event.forEach((s, i) => {
-      const startTime      = s.start.datetime;
-      const timezoneNumber = startTime.replace(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}/, '');
-      const timezoneAbbr   = OFFSET_TIME_ZONES[timezoneNumber];
+      const startDay = luxon.DateTime.fromISO(s.start.date);
+      const day      = startDay.toLocaleString(DATE_FORMAT);
+      let timeElem   = '';
 
-      const localeTimeStringOpts = {
-        timezone: timezoneAbbr,
-        hour: '2-digit',
-        minute: '2-digit',
-      };
-
-      const startTimeObj = new Date(Date.parse(startTime));
-      const date         = startTimeObj.toLocaleDateString(LOCALE);
-      const start        = startTimeObj.toLocaleTimeString(LOCALE, localeTimeStringOpts);
-
-      const endTime = s.end?.datetime;
-      const end     = endTime && new Date(Date.parse(endTime)).toLocaleTimeString(LOCALE, localeTimeStringOpts);
+      if(s.start.time) {
+        const startTime = luxon.DateTime.fromISO(s.start.time);
+        const time      = startTime.toLocaleString(TIME_FORMAT);
+              timeElem  = `<i>${time} @ </i>`;
+      }
 
       const showElem = `
   <div class="embiggened">
-    <strong>${date} ${start + ((end && (' - ' + end)) || '')}</strong>
+    <strong>${day}</strong>
     <br />
     <br />
-    <strong>${s.venue.displayName}</strong>
+    <div class="shows-time-and-venue">
+      ${timeElem}
+      <strong>${s.venue.displayName}</strong>
+    </div>
   </div>
   <div class="embiggened">
     <strong>${s.location.city}</strong>
