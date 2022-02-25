@@ -35,6 +35,14 @@ img {
   max-width: 100%;
 }
 
+mark {
+  background-color: #0066cf;
+}
+mark a:hover {
+  color: #7ed2e5;
+  border-bottom: 2px dotted #7ed2e5;
+}
+
 p {
   line-height: 1.5em;
   padding: 0 0.5em;
@@ -229,6 +237,13 @@ ul.column-list li {
   background-image: url(../assets/img/index/fence.gif);
   background-repeat: repeat;
   height: 38px;
+  margin: 4em 0;
+}
+
+#index_fire_border {
+  background-image: url(../assets/img/index/fire.gif);
+  background-repeat: repeat;
+  height: 42px;
   margin: 4em 0;
 }
 
