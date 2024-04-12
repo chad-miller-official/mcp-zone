@@ -1,6 +1,6 @@
 a {
-  border-bottom: 2px dotted white;
-  color: white;
+  border-bottom: 2px dotted #3d00cc;
+  color: #3d00cc;
   text-decoration: none;
 }
 a:hover {
@@ -8,7 +8,7 @@ a:hover {
   border-bottom: 2px dotted #af68e5;
 }
 a.a-button {
-  border: 1px solid white;
+  border: 1px solid #3d00cc;
   border-radius: 3px;
   padding: 1em;
 }
@@ -22,8 +22,8 @@ a.image {
 }
 
 body {
-  background-image: url("../assets/img/bg.gif");
-  color: white;
+  background-image: url("../assets/img/bg.jpg");
+  color: #3d00cc;
 }
 @media screen and (max-width: 799px) {
   body {
@@ -36,7 +36,7 @@ img {
 }
 
 mark {
-  background-color: #0066cf;
+  background-color: #79b7f5;
 }
 mark a:hover {
   color: #7ed2e5;
@@ -48,8 +48,33 @@ p {
   padding: 0 0.5em;
 }
 
+table {
+  border-collapse: collapse;
+}
+
+td {
+  padding: 0.75em;
+}
+
+table.blue,
+tr.blue {
+  background-color: #82f4ee;
+  border: 4px #53f0e8 ridge;
+}
+table.green,
+tr.green {
+  background-color: #82f49b;
+  border: 4px #53f075 ridge;
+}
+table.pink,
+tr.pink {
+  background-color: #fecfff;
+  border: 4px #fc9cff ridge;
+}
+
 ul.column-list {
   list-style-type: none;
+  padding: 0 1.5em;
   width: fit-content;
 }
 ul.column-list li {
@@ -62,10 +87,17 @@ ul.column-list li {
   margin-left: auto;
 }
 
+.beveled {
+  background-color: #fecfff;
+  border: 4px #fc9cff ridge;
+  margin: 1em 0;
+  padding: 2em;
+}
+
 .centered {
-  display: block;
   margin: auto;
   text-align: center;
+  display: block;
 }
 
 .embiggened {
@@ -107,16 +139,20 @@ ul.column-list li {
 }
 
 .link {
-  background-color: #b28fcd;
+  background-color: #d6a1ff;
 }
 
 .grid-row-border {
-  border-bottom: 2px dotted white;
+  border-bottom: 2px dotted #3a3a3a;
   grid-column: 1/4;
 }
 
 .pixelated {
   image-rendering: pixelated;
+}
+
+.powered-by-songkick {
+  filter: invert(13%) sepia(30%) saturate(6499%) hue-rotate(215deg) brightness(109%) contrast(80%);
 }
 
 @media screen and (max-width: 799px) {
@@ -188,6 +224,7 @@ ul.column-list li {
 .shows-slug {
   grid-column: 1/4;
   justify-self: center;
+  margin-bottom: 1em;
 }
 
 @media screen and (max-width: 799px) {
@@ -195,6 +232,11 @@ ul.column-list li {
     display: flex;
     flex-direction: column;
   }
+}
+
+.table-centered {
+  margin: auto;
+  text-align: center;
 }
 
 #bio_band_image_primary {

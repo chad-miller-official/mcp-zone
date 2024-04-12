@@ -61,20 +61,24 @@
     </div>
     <br />
     <div id="content">
-      <div id="shows_show_list">
-        <div class="shows-slug flex-row flex-center-horizontal flex-squished">
-          <img src="./assets/img/shows/spaceship.gif" width="60" />
-          <span class="fake-h1">Upcoming Shows</span>
-          <img src="./assets/img/shows/marble.gif" width="60" />
-        </div>
-        <div class="embiggened shows-grid-centered" id="shows_loading">
-          <i>Loading...</i>
-        </div>
+      <div class="shows-slug flex-row flex-center-horizontal flex-squished">
+        <img src="./assets/img/shows/spaceship.gif" width="60" />
+        <span class="fake-h1">Upcoming Shows</span>
+        <img src="./assets/img/shows/marble.gif" width="60" />
       </div>
+      <table class="pink embiggened table-centered">
+        <tbody id="shows_show_table">
+          <tr id="shows_loading">
+            <td>
+              <i>Loading...</i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <div class="flex-row flex-center-horizontal align-right">
+    <div class="flex-row flex-center-horizontal">
       <img src="./assets/img/shows/cube.gif" />
-      <img src="./assets/img/shows/powered-by-songkick-white.svg" width="128" />
+      <img src="./assets/img/shows/powered-by-songkick-white.svg" width="128" class="powered-by-songkick" />
     </div>
     <div class="centered" id="copyright">
       <hr />
