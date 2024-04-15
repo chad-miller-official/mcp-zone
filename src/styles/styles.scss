@@ -31,6 +31,7 @@ $text-color: #3d00cc;
 @mixin flex-row {
   display: flex;
   flex-direction: row;
+  gap: 1em;
   justify-content: space-between;
 }
 

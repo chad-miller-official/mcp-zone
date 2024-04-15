@@ -124,6 +124,7 @@ ul.column-list li {
 .flex-row {
   display: flex;
   flex-direction: row;
+  gap: 1em;
   justify-content: space-between;
 }
 
@@ -168,6 +169,7 @@ ul.column-list li {
   .show-announce {
     display: flex;
     flex-direction: row;
+    gap: 1em;
     justify-content: space-between;
     align-items: center;
   }
