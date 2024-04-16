@@ -1,6 +1,6 @@
 $(() => {
   $('#vintage').append(
-    `<img src="./assets/img/banners/banner${Math.floor(Math.random() * 10)}.gif" />`
+    `<img src="./assets/img/banners/banner${Math.floor(Math.random() * 11)}.gif" />`
   );
 
   const cursorId = Math.floor(Math.random() * 10);

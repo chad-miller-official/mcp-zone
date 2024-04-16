@@ -1,0 +1,266 @@
+a {
+  border-bottom: 2px dotted #3d00cc;
+  color: #3d00cc;
+  text-decoration: none;
+}
+a:hover {
+  color: #af68e5;
+  border-bottom: 2px dotted #af68e5;
+}
+a.a-button {
+  background-color: #d6a1ff;
+  border: 1px solid #3d00cc;
+  border-radius: 3px;
+  padding: 1em;
+}
+a.a-button:hover {
+  background-color: #af68e5;
+  color: white;
+}
+a.image {
+  border-bottom: none;
+}
+
+body {
+  background-image: url("../assets/img/bg.jpg");
+  color: #3d00cc;
+}
+@media screen and (max-width: 799px) {
+  body {
+    margin: 0;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+mark {
+  background-color: #79b7f5;
+}
+mark a:hover {
+  color: #7ed2e5;
+  border-bottom: 2px dotted #7ed2e5;
+}
+
+p {
+  line-height: 1.5em;
+  padding: 0 0.5em;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 1em 0;
+}
+
+td {
+  padding: 0.75em;
+}
+
+table.blue,
+tr.blue {
+  background-color: #82f4ee;
+  border: 4px #53f0e8 ridge;
+}
+table.green,
+tr.green {
+  background-color: #82f49b;
+  border: 4px #53f075 ridge;
+}
+table.pink,
+tr.pink {
+  background-color: #fecfff;
+  border: 4px #fc9cff ridge;
+}
+
+ul.column-list {
+  list-style-type: none;
+  padding: 0 1.5em;
+  width: fit-content;
+}
+ul.column-list li {
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.align-right {
+  float: right;
+  margin-left: auto;
+}
+
+.beveled {
+  background-color: #fecfff;
+  border: 4px #fc9cff ridge;
+  margin: 1em 0;
+  padding: 2em;
+}
+
+.centered {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+.embiggened {
+  font-size: 1.2em;
+}
+
+.fake-h1 {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+.flex-column > *:not(:last-child) {
+  margin-bottom: 1.2em;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  justify-content: space-between;
+}
+
+.flex-center-horizontal {
+  align-items: center;
+}
+
+.flex-squished {
+  justify-content: center;
+}
+.flex-squished *:not(:last-child) {
+  margin-right: 2vw;
+}
+
+.grid-row-border {
+  border-bottom: 2px dotted #3a3a3a;
+  grid-column: 1/4;
+}
+
+.powered-by-songkick {
+  filter: invert(13%) sepia(30%) saturate(6499%) hue-rotate(215deg) brightness(109%) contrast(80%);
+}
+
+@media screen and (max-width: 799px) {
+  .shows-time-and-venue {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+#bio_band_image_primary {
+  width: 70%;
+}
+
+#bio_band_image_secondary {
+  width: 35%;
+}
+
+@media screen and (max-width: 799px) {
+  #bio_separator img {
+    max-width: 15%;
+  }
+}
+
+#bio_text > blockquote {
+  float: right;
+  width: 50%;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+}
+@media screen and (max-width: 799px) {
+  #container {
+    margin: auto;
+    width: fit-content;
+  }
+}
+
+#content {
+  margin: 0 12px;
+}
+
+#copyright {
+  width: 100%;
+}
+#copyright * {
+  font-size: initial;
+}
+
+#index_blueline_border {
+  background-image: url(../assets/img/index/blueline.gif);
+  background-repeat: repeat;
+  height: 10px;
+  margin: 4em 0;
+}
+
+#index_fence_border {
+  background-image: url(../assets/img/index/fence.gif);
+  background-repeat: repeat;
+  height: 38px;
+  margin: 4em 0;
+}
+
+#index_staff_border {
+  background-image: url(../assets/img/index/staff.gif);
+  background-repeat: repeat;
+  height: 39px;
+  margin: 4em 0;
+}
+
+#index_band_photo {
+  margin-top: 16px;
+}
+@media screen and (min-width: 799px) {
+  #index_band_photo {
+    width: 50%;
+  }
+}
+
+#navbar {
+  font-size: 1.25em;
+}
+@media screen and (max-width: 799px) {
+  #navbar {
+    font-size: 1.1em;
+  }
+}
+#navbar ul {
+  padding-inline-start: 1em;
+  width: max-content;
+}
+@media screen and (max-width: 799px) {
+  #navbar ul {
+    padding-inline-start: 0;
+    margin: auto;
+    margin-bottom: 1em;
+  }
+}
+#navbar ul li {
+  display: inline;
+  padding: 4px;
+}
+#navbar ul li a {
+  padding: 4px;
+}
+#navbar ul li a:hover {
+  background-color: #af68e5;
+  color: white;
+}
+
+#shows_show_container {
+  width: fit-content;
+}
+
+#vintage {
+  margin-bottom: 1em;
+}
+
+/*# sourceMappingURL=styles.css.map */

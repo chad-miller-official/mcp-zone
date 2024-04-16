@@ -58,7 +58,7 @@ $(() => {
     <strong>${s.location.city}</strong>
   </td>
   <td>
-    <a class="a-button link" href="${s.uri}" target="_blank">Tickets</a>
+    <a class="a-button" href="${s.uri}" target="_blank">Tickets</a>
   </td>
 </tr>`;
 
