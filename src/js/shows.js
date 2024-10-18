@@ -16,6 +16,22 @@ const singleMessage = text => `
 const DATE_FORMAT = luxon.DateTime.DATE_MED_WITH_WEEKDAY;
 const TIME_FORMAT = luxon.DateTime.TIME_SIMPLE;
 
+const MANUAL_SHOWS = [
+  {
+    start: {
+      date: '2024-10-29',
+      time: '20:00',
+    },
+    venue: {
+      displayName: '529',
+    },
+    location: {
+      city: 'Atlanta, GA',
+    },
+    uri: 'https://529atlanta.com/events/10999/',
+  },
+];
+
 $(() => {
   const showList = $('#shows_show_table');
   const onFail = () => showList.append(singleMessage('Failed to retrieve upcoming shows! Tell Chad.'));
@@ -33,7 +49,17 @@ $(() => {
       return;
     }
 
-    resultsPage.results.event.forEach((s, i) => {
+    const upcomingManualShows = MANUAL_SHOWS.filter(s =>
+      luxon.DateTime.fromISO(s.start.date).diffNow().toMillis() > 0
+    );
+
+    const events = resultsPage.results.event.concat(upcomingManualShows);
+
+    events.sort((a, b) =>
+      luxon.DateTime.fromISO(a.start.date).diff(luxon.DateTime.fromISO(b.start.date)).toMillis()
+    );
+
+    events.forEach((s, i) => {
       const startDay = luxon.DateTime.fromISO(s.start.date);
       const day      = startDay.toLocaleString(DATE_FORMAT);
       let timeElem   = '';
