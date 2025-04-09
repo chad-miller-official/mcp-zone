@@ -18,7 +18,7 @@ $text-color: #3d00cc;
   display: flex;
   flex-direction: column;
 
-  &>*:not(:last-child) {
+  & > *:not(:last-child) {
     margin-bottom: 1.2em;
   }
 }
@@ -212,9 +212,16 @@ ul {
 }
 
 #bio_text {
-  &>blockquote {
-    float: right;
+  & > blockquote {
     width: 50%;
+
+    &:nth-of-type(1) {
+      float: right;
+    }
+
+    &:nth-of-type(2) {
+      float: left;
+    }
   }
 }
 
