@@ -10,9 +10,6 @@ const singleMessage = text => `
   </td>
 </tr>`;
 
-const DATE_FORMAT = luxon.DateTime.DATE_MED_WITH_WEEKDAY;
-const TIME_FORMAT = luxon.DateTime.TIME_SIMPLE;
-
 $(() => {
   const showList = $('#shows_show_table');
   const onFail = () => showList.append(
@@ -25,9 +22,20 @@ $(() => {
     }
 
     data.forEach(event => {
-      const startDay = luxon.DateTime.fromISO(event.starts_at);
-      const day = startDay.toLocaleString(DATE_FORMAT);
-      const time = startDay.toLocaleString(TIME_FORMAT);
+      const startDay = new Date(event.starts_at);
+
+      const day = startDay.toLocaleDateString('en-US',
+          {year: 'numeric', month: 'long', day: 'numeric'});
+
+      const time = startDay.toLocaleTimeString('en-US',
+          {hour: 'numeric', minute: '2-digit'});
+
+      const ticketUrl = event.offers.find(
+          offer => offer.type === 'Tickets' && offer.status === 'available')
+
+      let ticketElem = ticketUrl
+          ? `<a class="a-button" href="${ticketUrl.url}" target="_blank">Tickets</a>`
+          : `<i class="smallified">Tickets available soon!</i>`
 
       const showElem = `
 <tr>
@@ -43,7 +51,7 @@ $(() => {
     <strong>${event.venue.location}</strong>
   </td>
   <td>
-    <a class="a-button" href="${event.offers[0].url}" target="_blank">Tickets</a>
+    ${ticketElem}
   </td>
 </tr>`;
 

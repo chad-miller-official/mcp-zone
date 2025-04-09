@@ -160,6 +160,10 @@ ul.column-list li {
   }
 }
 
+.smallified {
+  font-size: smaller;
+}
+
 #bio_band_image_primary {
   width: 70%;
 }
