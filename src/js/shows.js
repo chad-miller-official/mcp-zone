@@ -1,10 +1,7 @@
-/* What are you gonna do, steal my Songkick API key? */
-const SONGKICK_API_KEY          = '2kPN9eFcrPY9pwv4'; // TODO change this to MCP's API key when we get one
-const SONGKICK_ARTIST_ID        = '8649694';
-const SONGKICK_API_CALENDAR_URL = `https://api.songkick.com/api/3.0/artists/${SONGKICK_ARTIST_ID}/calendar.json?apikey=${SONGKICK_API_KEY}`;
-
-const LOCALE      = navigator.languages?.[0] || navigator.language;
-const GRID_BORDER = '<div class="grid-row-border"></div>';
+/* What are you gonna do, steal my Bandsintown API key? */
+const BANDSINTOWN_API_KEY = '1765ab9553fda3a1afa4e9d9701e2ee0';
+const BANDSINTOWN_ARTIST_NAME = 'Michael Cera Palin';
+const SONGKICK_API_CALENDAR_URL = `https://rest.bandsintown.com/artists/${BANDSINTOWN_ARTIST_NAME}/events/?app_id=${BANDSINTOWN_API_KEY}`;
 
 const singleMessage = text => `
 <tr>
@@ -16,59 +13,21 @@ const singleMessage = text => `
 const DATE_FORMAT = luxon.DateTime.DATE_MED_WITH_WEEKDAY;
 const TIME_FORMAT = luxon.DateTime.TIME_SIMPLE;
 
-const MANUAL_SHOWS = [
-  {
-    start: {
-      date: '2024-10-29',
-      time: '20:00',
-    },
-    venue: {
-      displayName: '529',
-    },
-    location: {
-      city: 'Atlanta, GA',
-    },
-    uri: 'https://529atlanta.com/events/10999/',
-  },
-];
-
 $(() => {
   const showList = $('#shows_show_table');
-  const onFail = () => showList.append(singleMessage('Failed to retrieve upcoming shows! Tell Chad.'));
+  const onFail = () => showList.append(
+      singleMessage('Failed to retrieve upcoming shows! Tell Chad.'));
 
   $.get(SONGKICK_API_CALENDAR_URL, data => {
-    const resultsPage = data.resultsPage;
-
-    if(resultsPage.status != 'ok') {
-      onFail();
-      return;
-    }
-
-    if(resultsPage.totalEntries <= 0) {
+    if (data.length <= 0) {
       showList.append(singleMessage('No upcoming shows.'));
       return;
     }
 
-    const upcomingManualShows = MANUAL_SHOWS.filter(s =>
-      luxon.DateTime.fromISO(s.start.date).diffNow().toMillis() > 0
-    );
-
-    const events = resultsPage.results.event.concat(upcomingManualShows);
-
-    events.sort((a, b) =>
-      luxon.DateTime.fromISO(a.start.date).diff(luxon.DateTime.fromISO(b.start.date)).toMillis()
-    );
-
-    events.forEach((s, i) => {
-      const startDay = luxon.DateTime.fromISO(s.start.date);
-      const day      = startDay.toLocaleString(DATE_FORMAT);
-      let timeElem   = '';
-
-      if(s.start.time) {
-        const startTime = luxon.DateTime.fromISO(s.start.time);
-        const time      = startTime.toLocaleString(TIME_FORMAT);
-              timeElem  = `<i>${time} @ </i>`;
-      }
+    data.forEach(event => {
+      const startDay = luxon.DateTime.fromISO(event.starts_at);
+      const day = startDay.toLocaleString(DATE_FORMAT);
+      const time = startDay.toLocaleString(TIME_FORMAT);
 
       const showElem = `
 <tr>
@@ -76,21 +35,21 @@ $(() => {
     <strong>${day}</strong>
     <br />
     <div class="shows-time-and-venue">
-      ${timeElem}
-      <strong>${s.venue.displayName}</strong>
+      <i>${time} @ </i>
+      <strong>${event.venue.name}</strong>
     </div>
   </td>
   <td>
-    <strong>${s.location.city}</strong>
+    <strong>${event.venue.location}</strong>
   </td>
   <td>
-    <a class="a-button" href="${s.uri}" target="_blank">Tickets</a>
+    <a class="a-button" href="${event.offers[0].url}" target="_blank">Tickets</a>
   </td>
 </tr>`;
 
       showList.append(showElem);
     });
   })
-    .fail(onFail)
-    .always(() => $('#shows_loading').remove());
+  .fail(onFail)
+  .always(() => $('#shows_loading').remove());
 });
